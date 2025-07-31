@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanavandhini V | E-Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        /* Vibrant Color Palette & Enhanced Styling */
+        :root {
+            /* Using the blue from the image for primary accent */
+            --primary-accent: #2A3B8F; /* Deep blue from the image */
+            --secondary-accent: #3B50A0; /* Slightly lighter, related blue */
+            --light-bg-main: #F0F4F8; /* Very light blue-gray background */
+            --light-bg-card: #FFFFFF; /* Pure white for cards */
+            --light-bg-sidebar: #E8F0FE; /* Light blue for sidebar */
+            --text-dark: #333333; /* Dark gray for main text */
+            --text-muted: #6C757D; /* Muted gray for secondary text */
+            --border-light: #E0E0E0; /* Light border */
+            --shadow-light: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            --header-color: #4A4A4A; /* Darker header text */
+            --progress-bar-bg: #E9ECEF; /* Light gray for empty part of bar */
+            --timeline-line-color: #D1D9E6; /* Color for the timeline vertical line */
+
+            /* New pastel shades for pop-up - keeping them as they are not explicitly requested to change */
+            --popup-bg: #E0FFE0; /* Light mint green for pop-up background */
+            --popup-text: #2F4F4F; /* Dark slate gray for pop-up text */
+            --popup-border: #90EE90; /* Light green border */
+            --popup-icon-color: #3CB371; /* Medium sea green for icon */
+
+            /* Loading spinner colors */
+            --spinner-color: var(--primary-accent);
+        }
+
+        :root[data-theme="dark"] {
+            /* Using the blue from the image for primary accent in dark mode */
+            --primary-accent: #2A3B8F; /* Deep blue from the image */
+            --secondary-accent: #3B50A0; /* Slightly lighter, related blue */
+            --light-bg-main: #2D3748; /* Dark blue-gray background */
+            --light-bg-card: #4A5568; /* Darker cards */
+            --light-bg-sidebar: #2C3E50; /* Darker sidebar */
+            --text-dark: #E2E8F0; /* Light text */
+            --text-muted: #A0AEC0; /* Lighter muted text */
+            --border-light: #4A5568; /* Darker border */
+            --shadow-light: rgba(0, 0, 0, 0.4); /* More prominent shadow */
+            --header-color: #F7FAFC; /* Light headers */
+            --progress-bar-bg: #4A5568; /* Darker gray for empty part of bar */
+            --timeline-line-color: #636B7A; /* Darker color for timeline line */
+
+            /* Dark mode pop-up colors - keeping them as they are not explicitly requested to change */
+            --popup-bg: #3A4750; /* Darker blue-gray for pop-up background */
+            --popup-text: #E0E8F0; /* Light text for pop-up */
+            --popup-border: #5A6A7A; /* Darker border */
+            --popup-icon-color: #61DAFB; /* Cyan for icon */
+
+            /* Loading spinner colors */
+            --spinner-color: var(--primary-accent);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg-main); /* Pastel main background */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            font-size: 16px;
+            position: relative; /* Needed for particles */
+            z-index: 1; /* Ensure content is above particles */
+        }
+
+        /* Particles.js Container */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0; /* Behind other content */
+            background-color: transparent; /* Background handled by body */
+        }
+
+        .header-logo {
+            text-align: center;
+            padding: 30px 20px 10px;
+            background-color: var(--light-bg-main);
+            position: relative;
+            transition: background-color 0.5s ease;
+            z-index: 2; /* Above particles */
+        }
+
+        .header-logo img {
+            max-width: 250px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--light-bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-dark);
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px var(--shadow-light);
+            z-index: 3; /* Above everything */
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--primary-accent);
+            color: var(--light-bg-card);
+            border-color: var(--primary-accent);
+            transform: translateY(-2px);
+        }
+        .theme-toggle i {
+            font-size: 1.2rem;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 25px;
+            position: relative; /* Needed for z-index context */
+            z-index: 2; /* Above particles */
+        }
+
+        /* Left Sidebar - Profile & Navigation */
+        .left-sidebar {
+            width: 280px;
+            background-color: var(--light-bg-sidebar); /* Pastel sidebar background */
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 8px 25px var(--shadow-light); /* More prominent shadow */
+            padding: 30px 20px;
+            text-align: center;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+            height: fit-content;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .sidebar-profile-pic {
+            width: 130px; /* Slightly larger */
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-accent); /* Vibrant border */
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for profile pic */
+            transition: border-color 0.5s ease, transform 0.3s ease;
+        }
+        .sidebar-profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        .sidebar-name {
+            font-size: 1.7rem; /* Slightly smaller as requested */
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--header-color);
+            transition: color 0.5s ease;
+        }
+
+        .sidebar-title {
+            font-size: 1rem; /* Slightly larger */
+            color: var(--secondary-accent); /* Pastel accent */
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.5s ease;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 15px; /* More spacing */
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 12px 18px; /* Larger clickable area */
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 1.05rem; /* Slightly larger */
+            font-weight: 500;
+            border-radius: 10px; /* More rounded */
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden; /* For background animation */
+        }
+
+        .sidebar-nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
+            transition: left 0.4s ease-in-out;
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        .sidebar-nav a:hover::before {
+            left: 100%;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background-color: var(--primary-accent); /* Solid color on hover/active */
+            color: var(--light-bg-card);
+            transform: translateX(8px); /* More pronounced slide */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar-nav a span {
+            position: relative;
+            z-index: 1; /* Keep text above pseudo-element */
+        }
+
+        .sidebar-nav a.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px; /* Thicker active indicator */
+            height: 85%;
+            background-color: var(--light-bg-card);
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar-class {
+            font-size: 0.9rem;
+            color: var(--secondary-accent);
+            margin-top: 30px;
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+
+        /* Right Content Area */
+        .right-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* More spacing between cards */
+        }
+
+        .content-card {
+            background-color: var(--light-bg-card);
+            border-radius: 15px; /* More rounded */
+            box-shadow: 0 8px 25px var(--shadow-light); /* More prominent shadow */
+            padding: 35px; /* More padding */
+            transition: background-color 0.5s ease, box-shadow 0.5s ease, transform 0.2s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-header {
+            font-size: 0.9rem; /* Slightly larger */
+            color: var(--text-muted);
+            margin-bottom: 8px; /* More spacing */
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px; /* More letter spacing */
+            transition: color 0.5s ease;
+        }
+
+        .section-title {
+            font-size: 2.5rem; /* Even larger and bolder */
+            font-weight: 900;
+            color: var(--header-color);
+            margin-bottom: 30px; /* More spacing */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.5s ease;
+        }
+
+        /* About Me Section */
+        .about-text {
+            font-size: 1.05rem; /* Adjusted for readability */
+            line-height: 1.8; /* Improved line height */
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            transition: color 0.5s ease;
+        }
+
+        .social-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px; /* More spacing */
+            justify-content: center;
+        }
+
+        .social-card {
+            background-color: var(--light-bg-sidebar); /* Use sidebar light background */
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 25px; /* More padding */
+            text-align: center;
+            flex: 1 1 calc(25% - 25px); /* Adjust flex basis */
+            min-width: 130px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.03); /* More pronounced hover */
+            box-shadow: 0 12px 25px var(--shadow-light);
+        }
+
+        .social-card i {
+            font-size: 2.5rem; /* Larger icons */
+            color: var(--primary-accent); /* Vibrant accent color */
+            margin-bottom: 12px;
+            transition: color 0.5s ease, transform 0.3s ease;
+        }
+
+        .social-card:hover i {
+            color: var(--secondary-accent); /* Change color on hover */
+            transform: scale(1.1);
+        }
+
+        .social-card .card-text {
+            font-size: 1rem; /* Slightly larger */
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: color 0.5s ease;
+        }
+
+        .social-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Social card specific colors - Adjusted for new palette */
+        .social-card.resume i { color: #2A3B8F; } /* Blue from image */
+        .social-card.linkedin i { color: #0077B5; } /* LinkedIn Blue */
+        .social-card.github i { color: #333; } /* Dark Gray */
+        :root[data-theme="dark"] .social-card.github i { color: #E2E8F0; } /* Light for dark mode */
+        .social-card.firebase i { color: #FFCA28; } /* Firebase Yellow */
+
+
+        /* Skills Section - Technical Skills Bar Design */
+        .technical-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px 50px; /* More spacing */
+            padding: 20px 0;
+        }
+
+        .skill-bar-item {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px); /* More pronounced fade-up */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .skill-bar-item.aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-name {
+            font-size: 1.1rem; /* Slightly larger */
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.5s ease;
+        }
+
+        .skill-percentage {
+            font-size: 1rem; /* Slightly larger */
+            font-weight: 600;
+            color: var(--primary-accent);
+            transition: color 0.5s ease;
+        }
+
+        .progress-bar-container {
+            background-color: var(--progress-bar-bg);
+            border-radius: 8px; /* More rounded */
+            height: 12px; /* Thicker bar */
+            overflow: hidden;
+            position: relative;
+            transition: background-color 0.5s ease;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0;
+            background-color: var(--primary-accent);
+            border-radius: 8px;
+            transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother animation */
+        }
+        /* Specific colors for skill bars - Adjusted for new blue vibrancy */
+        .skill-bar-item[data-skill-id="python"] .progress-bar-fill { background-color: #2A3B8F; } /* Blue from image */
+        .skill-bar-item[data-skill-id="java"] .progress-bar-fill { background-color: #007396; } /* Java Blue */
+        .skill-bar-item[data-skill-id="html-css"] .progress-bar-fill { background-color: #E44D26; } /* HTML/CSS Orange */
+        .skill-bar-item[data-skill-id="ml-ai"] .progress-bar-fill { background-color: #FFC107; } /* ML/AI Yellow */
+        .skill-bar-item[data-skill-id="nlp"] .progress-bar-fill { background-color: #3B50A0; } /* Related Blue */
+
+        /* Styles for Soft Skills and Languages Timeline */
+        .timeline-section-title {
+            font-size: 1.8rem; /* Larger */
+            font-weight: 800;
+            color: var(--header-color);
+            margin-top: 50px;
+            margin-bottom: 25px;
+            text-align: center;
+            transition: color 0.5s ease;
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+            margin: 0 30px; /* More margin */
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            width: 3px; /* Thicker line */
+            background-color: var(--timeline-line-color);
+            top: 0;
+            bottom: 0;
+            left: 25px; /* Adjust to align with icons */
+            transition: background-color 0.5s ease;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px; /* More spacing */
+            position: relative;
+            padding-left: 70px; /* More space for icon and line */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .timeline-item.aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 45px; /* Larger icon circle */
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--primary-accent);
+            color: var(--light-bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem; /* Larger icon */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            transition: background-color 0.5s ease, color 0.5s ease, transform 0.3s ease;
+        }
+
+        .timeline-icon:hover {
+            transform: scale(1.15) rotate(5deg); /* More dynamic hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-icon img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+
+        .timeline-content {
+            background-color: var(--light-bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 20px 25px; /* More padding */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem; /* Larger */
+            font-weight: 700;
+            color: var(--header-color);
+            margin-bottom: 8px;
+            transition: color 0.5s ease;
+        }
+
+        .timeline-description {
+            font-size: 1rem; /* Adjusted for readability */
+            color: var(--text-muted);
+            line-height: 1.7;
+            transition: color 0.5s ease;
+        }
+
+
+        /* Education Section - Accordion Style */
+        .accordion-item {
+            border: 1px solid var(--border-light);
+            margin-bottom: 12px; /* More spacing */
+            border-radius: 10px;
+            overflow: hidden;
+            transition: border-color 0.5s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .accordion-header {
+            background-color: var(--light-bg-card);
+            padding: 18px 25px; /* More padding */
+            font-size: 1.1rem; /* Slightly larger */
+            font-weight: 700;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        .accordion-button:not(.collapsed) {
+             color: var(--primary-accent);
+             background-color: var(--light-bg-sidebar); /* Pastel background for active */
+             box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: transparent;
+        }
+        .accordion-body {
+            padding: 18px 25px;
+            font-size: 1rem; /* Adjusted for readability */
+            color: var(--text-muted);
+            background-color: var(--light-bg-sidebar); /* Pastel background */
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        .accordion-body strong {
+            color: var(--text-dark);
+            transition: color 0.5s ease;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted min-width */
+            gap: 25px; /* More spacing */
+        }
+
+        .project-card {
+            background-color: var(--light-bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 30px; /* More padding */
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 25px var(--shadow-light);
+        }
+
+        .project-card i,
+        .project-card .project-icon {
+            font-size: 3rem; /* Larger icons */
+            width: 3rem;
+            height: 3rem;
+            color: var(--primary-accent);
+            margin-bottom: 20px;
+            transition: color 0.5s ease, transform 0.3s ease;
+        }
+
+        .project-card:hover i,
+        .project-card:hover .project-icon {
+            transform: scale(1.1);
+            color: var(--secondary-accent);
+        }
+
+        .project-card .project-title {
+            font-size: 1.2rem; /* Larger */
+            font-weight: 700;
+            color: var(--header-color);
+            margin-bottom: 10px;
+            transition: color 0.5s ease;
+        }
+
+        .project-card .project-description {
+            font-size: 1rem; /* Adjusted for readability */
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            transition: color 0.5s ease;
+        }
+        /* Project Specific Icon Colors - Adjusted for new palette */
+        .project-card.beyond-labels i { color: #2A3B8F; } /* Blue from image */
+        .project-card.smart-rain i { color: #3B50A0; } /* Related Blue */
+        .project-card.joyful-campus i { color: #007396; } /* Darker Blue */
+        .project-card.data-automation i { color: #E44D26; } /* Orange */
+        .project-card.travel-booking i { color: #FFC107; } /* Yellow */
+
+        .project-card .elaborate-btn {
+            background-color: var(--primary-accent);
+            color: white;
+            border: none;
+            padding: 10px 20px; /* Larger button */
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem; /* Slightly larger */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .project-card .elaborate-btn:hover {
+            background-color: var(--secondary-accent);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Internships & Certifications - Skill Item-like style */
+        .small-item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* More spacing */
+        }
+
+        .small-item {
+            background-color: var(--light-bg-sidebar); /* Consistent light background */
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 18px 25px; /* More padding */
+            font-size: 1rem; /* Adjusted for readability */
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 15px; /* More spacing */
+            color: var(--text-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, transform 0.2s ease;
+        }
+        .small-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .small-item i {
+            font-size: 1.3rem; /* Larger icon */
+            color: var(--primary-accent);
+            transition: color 0.5s ease;
+        }
+        .small-item span {
+            display: block;
+        }
+        .small-item .role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            transition: color 0.5s ease;
+        }
+
+        /* Certifications - Specific Icon Colors - Adjusted to fit new theme */
+        .cert-item-style.infosys-iot i { color: #2A3B8F; } /* Blue from image */
+        .cert-item-style.infosys-bigdata i { color: #3B50A0; } /* Related Blue */
+        .cert-item-style.infosys-daa i { color: #007396; } /* Darker Blue */
+        .cert-item-style.microsoft-pl300 i { color: #E44D26; } /* Orange */
+        .cert-item-style.ethical-hacking i { color: #FFC107; } /* Yellow */
+        .cert-item-style.infosys-python i { color: #2A3B8F; } /* Blue from image */
+        .cert-item-style.infosys-android i { color: #3B50A0; } /* Related Blue */
+
+        /* Extra-Curricular Activities - Custom Design */
+        .extra-curricular-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px; /* More spacing */
+            padding: 0;
+            list-style: none;
+        }
+
+        .extra-curricular-item {
+            background-color: var(--light-bg-sidebar); /* Consistent light background */
+            border: 1px solid var(--border-light);
+            border-radius: 12px; /* More rounded */
+            padding: 22px; /* More padding */
+            display: flex;
+            align-items: center;
+            gap: 25px; /* More spacing */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08); /* More pronounced shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
+        }
+
+        .extra-curricular-item:hover {
+            transform: translateY(-8px) scale(1.01); /* Lift and slightly scale */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .extra-curricular-item .icon-wrapper {
+            flex-shrink: 0;
+            width: 55px; /* Larger icon circle */
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-accent), var(--secondary-accent)); /* Gradient background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem; /* Larger icon */
+            color: var(--light-bg-card);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background 0.5s ease, transform 0.3s ease;
+        }
+        .extra-curricular-item:hover .icon-wrapper {
+            transform: rotate(5deg) scale(1.05); /* Rotate and scale icon */
+        }
+
+        .extra-curricular-item .activity-text {
+            font-size: 1.05rem; /* Slightly larger */
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: color 0.5s ease;
+        }
+
+        /* Contact Section */
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px; /* More spacing */
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 18px; /* More spacing */
+            font-size: 1.05rem; /* Slightly larger */
+            color: var(--text-dark);
+            background-color: var(--light-bg-sidebar); /* Consistent light background */
+            border-radius: 10px;
+            padding: 18px 25px; /* More padding */
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, transform 0.2s ease;
+        }
+        .contact-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-list li i {
+            font-size: 1.8rem; /* Larger icon */
+            color: var(--primary-accent);
+            flex-shrink: 0;
+            transition: color 0.5s ease;
+        }
+        .contact-list li a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            word-break: break-all;
+            transition: color 0.5s ease;
+        }
+        .contact-list li a:hover {
+            text-decoration: underline;
+            color: var(--secondary-accent);
+        }
+        .contact-list li div {
+            flex-grow: 1;
+        }
+        .contact-list .address-line {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            transition: color 0.5s ease;
+        }
+
+        .contact-address-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px; /* More spacing */
+            margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-address-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-address-item {
+            background-color: var(--light-bg-sidebar);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 18px 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            color: var(--text-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, transform 0.2s ease;
+        }
+        .contact-address-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-address-item i {
+            font-size: 1.8rem;
+            color: var(--primary-accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: color 0.5s ease;
+        }
+
+        .contact-address-item div {
+            flex-grow: 1;
+        }
+
+        .contact-address-item .address-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            transition: color 0.5s ease;
+        }
+
+        .contact-address-item .address-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            transition: color 0.5s ease;
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .main-wrapper {
+                flex-direction: column;
+                padding: 15px;
+                gap: 25px;
+            }
+            .left-sidebar {
+                width: 100%;
+                position: static;
+                padding: 25px;
+            }
+            .sidebar-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .sidebar-nav li {
+                margin-bottom: 0;
+            }
+            .sidebar-nav a {
+                padding: 10px 15px;
+                font-size: 0.95rem;
+            }
+            .sidebar-nav a.active::before {
+                display: none;
+            }
+            .content-card {
+                padding: 30px;
+            }
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+            .social-card {
+                flex: 1 1 calc(50% - 25px);
+            }
+            .technical-skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .timeline-container {
+                margin: 0;
+                padding-left: 50px;
+            }
+            .timeline-container::before {
+                left: 25px;
+            }
+            .timeline-item {
+                padding-left: 60px;
+            }
+            .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+            .extra-curricular-item, .small-item, .contact-list li, .contact-address-item {
+                padding: 15px 20px;
+                gap: 15px;
+            }
+            .extra-curricular-item .icon-wrapper {
+                width: 45px;
+                height: 45px;
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-logo {
+                padding: 20px 10px 5px;
+            }
+            .header-logo img {
+                max-width: 180px;
+            }
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 5px 8px;
+                font-size: 0.85rem;
+            }
+            .main-wrapper {
+                padding: 10px;
+                gap: 20px;
+            }
+            .left-sidebar {
+                padding: 20px;
+            }
+            .sidebar-name {
+                font-size: 1.6rem;
+            }
+            .sidebar-title {
+                font-size: 0.85rem;
+            }
+            .content-card {
+                padding: 25px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            .social-card {
+                flex: 1 1 100%;
+            }
+            .small-item, .extra-curricular-item, .contact-list li, .contact-address-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px 18px;
+            }
+            .small-item span, .extra-curricular-item .activity-text, .contact-list li div, .contact-address-item div {
+                text-align: left;
+                width: 100%; /* Ensure text wraps */
+            }
+            .small-item i, .extra-curricular-item .icon-wrapper, .contact-list li i, .contact-address-item i {
+                margin-bottom: 8px;
+                align-self: flex-start; /* Align icons to the left */
+            }
+            .extra-curricular-item .icon-wrapper {
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
+        }
+
+        /* AOS Animation Overrides */
+        [data-aos] {
+            opacity: 0;
+            transition-property: opacity, transform;
+            transition-duration: 1s; /* Slower animations for smoother feel */
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth ease-out */
+            transition-delay: 0s;
+        }
+        [data-aos="fade-up"].aos-animate,
+        [data-aos="fade-down"].aos-animate,
+        [data-aos="fade-left"].aos-animate,
+        [data-aos="fade-right"].aos-animate,
+        [data-aos="zoom-in"].aos-animate,
+        [data-aos="flip-left"].aos-animate,
+        [data-aos="flip-right"].aos-animate {
+            opacity: 1;
+            transform: translate(0, 0) scale(1) rotate(0deg);
+        }
+        [data-aos="fade-up"] { transform: translateY(40px); } /* More pronounced initial position */
+        [data-aos="fade-down"] { transform: translateY(-40px); }
+        [data-aos="fade-left"] { transform: translateX(40px); }
+        [data-aos="fade-right"] { transform: translateX(-40px); }
+        [data-aos="zoom-in"] { transform: scale(0.8); }
+        [data-aos="flip-left"] { transform: perspective(2500px) rotateY(90deg); }
+        [data-aos="flip-right"] { transform: perspective(2500px) rotateY(-90deg); }
+
+
+        /* Modal specific styles for dark mode */
+        .modal-content {
+            background-color: var(--light-bg-card);
+            color: var(--text-dark);
+            border: 1px solid var(--border-light);
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-light);
+        }
+        .modal-header {
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px 25px;
+        }
+        .modal-footer {
+            border-top: 1px solid var(--border-light);
+            padding: 15px 25px;
+        }
+        .modal-title {
+            color: var(--header-color);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .btn-close {
+            filter: var(--text-dark) == #E2E8F0 ? invert(1) : none; /* Invert for dark mode */
+            transition: filter 0.5s ease;
+        }
+        .modal-body p, .modal-body ul {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+        .modal-body h6 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--header-color);
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        .modal-body ul {
+            padding-left: 20px;
+        }
+        .modal-body ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            background-color: var(--primary-accent);
+            border-color: var(--primary-accent);
+            transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: none;
+            z-index: 1000;
+            width: 55px;
+            height: 55px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        #backToTopBtn:hover {
+            background-color: var(--secondary-accent);
+            border-color: var(--secondary-accent);
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        /* New Welcome Pop-up Styles */
+        #welcomeModal .modal-content {
+            background-color: var(--popup-bg);
+            border: 1px solid var(--popup-border);
+            color: var(--popup-text);
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeInScale 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #welcomeModal .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+            justify-content: center;
+            position: relative;
+        }
+
+        #welcomeModal .modal-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--popup-text);
+            margin-bottom: 15px;
+        }
+
+        #welcomeModal .modal-body {
+            padding-top: 0;
+        }
+
+        #welcomeModal .modal-body p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: var(--popup-text);
+        }
+
+        #welcomeModal .modal-footer {
+            border-top: none;
+            padding-top: 0;
+            justify-content: center;
+        }
+
+        #welcomeModal .btn-primary {
+            background-color: var(--primary-accent);
+            border-color: var(--primary-accent);
+            font-weight: 600;
+            padding: 10px 30px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        #welcomeModal .btn-primary:hover {
+            background-color: var(--secondary-accent);
+            border-color: var(--secondary-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #welcomeModal .btn-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            filter: none; /* Reset filter for dark mode */
+            color: var(--popup-text); /* Ensure visibility */
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        #welcomeModal .btn-close:hover {
+            opacity: 1;
+        }
+
+        .welcome-icon-container {
+            font-size: 3.5rem;
+            color: var(--popup-icon-color);
+            margin-bottom: 20px;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Quote of the Day styles (removed, but keeping class for reference if needed) */
+        .quote-of-the-day-container {
+            display: none; /* Hidden as requested */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div> <!-- Particles.js container -->
+
+    <div class="header-logo">
+        <img src="Christ_logo.png" alt="Christ University Logo">
+        <button id="themeToggle" class="theme-toggle">
+            <i class="fas fa-sun"></i> <!-- Initial sun icon -->
+        </button>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="left-sidebar">
+            <img class="sidebar-profile-pic" src="Profile.jpg" alt="Dhanavandhini V Profile Picture">
+            <div class="sidebar-name">Dhanavandhini V</div>
+            <div class="sidebar-title">BCA Computer Science</div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#about" class="active"><span>ABOUT</span></a></li>
+                    <li><a href="#skills"><span>SKILLS</span></a></li>
+                    <li><a href="#education"><span>EDUCATION</span></a></li>
+                    <li><a href="#projects"><span>PROJECTS</span></a></li>
+                    <li><a href="#internships"><span>INTERNSHIPS</span></a></li>
+                    <li><a href="#certifications"><span>CERTIFICATIONS</span></a></li>
+                    <li><a href="#extra-curricular"><span>ACTIVITIES</span></a></li>
+                    <li><a href="#contact"><span>CONTACT</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-class">CLASS 2023 - 26</div>
+        </div>
+
+        <div class="right-content">
+
+            <div id="about" class="content-card" data-aos="fade-up">
+                <div class="section-header">PERSONAL INSIGHT</div>
+                <div class="section-title">ABOUT ME</div>
+                <p class="about-text" id="typewriter-text"></p>
+                <p class="about-text">
+                    "Data is the new oil, and I'm here to refine it !"
+                </p>
+
+                <!-- Quote of the Day container removed as requested -->
+
+                <div class="social-cards-container">
+                    <a href="updated resume.pdf" download class="social-card resume">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="card-text">Resume</div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dhanya26" target="_blank" class="social-card linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="card-text">Linkedin</div>
+                    </a>
+                    <a href="https://github.com/dhanavandhiniv-hub" target="_blank" class="social-card github">
+                        <i class="fab fa-github"></i>
+                        <div class="card-text">Github</div>
+                    </a>
+                    <a href="https://firebase.google.com/?gclsrc=aw.ds" target="_blank" class="social-card firebase">
+                        <i class="fas fa-fire"></i> <!-- Firebase icon -->
+                        <div class="card-text">Firebase</div>
+                    </a>
+                </div>
+            </div>
+
+            <div id="skills" class="content-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="section-header">SPECIALIZATIONS</div>
+                <div class="section-title">PROFICIENCIES SHAPED BY CURIOSITY AND COMMITMENT</div>
+
+                <h4 class="timeline-section-title">Technical Skills</h4>
+                <div class="technical-skills-grid">
+                    <!-- Technical Skills - Sorted Descending -->
+                    <div class="skill-bar-item" data-aos="fade-right" data-aos-delay="200" data-skill-id="html-css">
+                        <div class="skill-name">HTML & CSS <span class="skill-percentage">90%</span></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item" data-aos="fade-right" data-aos-delay="250" data-skill-id="python">
+                        <div class="skill-name">Python <span class="skill-percentage">85%</span></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item" data-aos="fade-right" data-aos-delay="300" data-skill-id="nlp">
+                        <div class="skill-name">NLP <span class="skill-percentage">80%</span></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item" data-aos="fade-right" data-aos-delay="350" data-skill-id="ml-ai">
+                        <div class="skill-name">Machine Learning & AI <span class="skill-percentage">75%</span></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-item" data-aos="fade-right" data-aos-delay="400" data-skill-id="java">
+                        <div class="skill-name">Java <span class="skill-percentage">70%</span></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="timeline-section-title">Soft Skills</h4>
+                <div class="timeline-container">
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/leadership-icon.svg" alt="Leadership Icon"> -->
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Leadership</div>
+                            <div class="timeline-description">Guiding teams towards common goals.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/adaptability-icon.svg" alt="Adaptability Icon"> -->
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Adaptability</div>
+                            <div class="timeline-description">Thriving in dynamic environments.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/communication-icon.svg" alt="Communication Icon"> -->
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Communication</div>
+                            <div class="timeline-description">Articulating ideas clearly and effectively.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/problemsolving-icon.svg" alt="Problem Solving Icon"> -->
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Problem Solving</div>
+                            <div class="timeline-description">Analytical approach to complex challenges.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/creativity-icon.svg" alt="Creativity Icon"> -->
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Creativity</div>
+                            <div class="timeline-description">Innovating and thinking outside the box.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/teamwork-icon.svg" alt="Teamwork Icon"> -->
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Teamwork</div>
+                            <div class="timeline-description">Collaborating effectively for shared success.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="700">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/quicklearner-icon.svg" alt="Quick Learner Icon"> -->
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Quick Learner</div>
+                            <div class="timeline-description">Rapidly acquiring new knowledge and skills.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="timeline-section-title">Languages</h4>
+                <div class="timeline-container">
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/tamil-icon.svg" alt="Tamil Icon"> -->
+                            <i class="fas fa-language" style="color: #007bff;"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Tamil</div>
+                            <div class="timeline-description">Native proficiency.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/english-icon.svg" alt="English Icon"> -->
+                            <i class="fas fa-language" style="color: #dc3545;"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">English</div>
+                            <div class="timeline-description">Fluent in written and spoken communication.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/malayalam-icon.svg" alt="Malayalam Icon"> -->
+                            <i class="fas fa-language" style="color: #28a745;"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Malayalam</div>
+                            <div class="timeline-description">Conversational proficiency.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/kannada-icon.svg" alt="Kannada Icon"> -->
+                            <i class="fas fa-language" style="color: #ffc107;"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Kannada</div>
+                            <div class="timeline-description">Basic understanding.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="timeline-icon">
+                            <!-- Replace with AI generated icon, e.g., <img src="path/to/german-icon.svg" alt="German Icon"> -->
+                            <i class="fas fa-language" style="color: #6f42c1;"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">German A1</div>
+                            <div class="timeline-description">Beginner level.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="education" class="content-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="section-header">EDUCATION</div>
+                <div class="section-title">MY LEARNING PATH</div>
+                <div class="accordion" id="educationAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                BACHELOR OF COMPUTER APPLICATION
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#educationAccordion">
+                            <div class="accordion-body">
+                                <strong>Christ University, Bangalore</strong><br>
+                                Expected: 2026 | CGPA: 3.04/4
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                12TH GRADE (HSC)
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#educationAccordion">
+                            <div class="accordion-body">
+                                <strong>Oxford Mat Hr Sec School, Sivagangai</strong><br>
+                                Year: 2023 | Percentage: 88.5%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                10TH GRADE (SSLC)
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#educationAccordion">
+                            <div class="accordion-body">
+                                <strong>Oxford Mat Hr Sec School, Sivagangai</strong><br>
+                                Year: 2020 | Percentage: 96%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="projects" class="content-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="section-header">PROJECTS</div>
+                <div class="section-title">PORTFOLIO OF MY PROVEN EXPERTISE</div>
+                <div class="project-grid">
+                    <div class="project-card beyond-labels" data-aos="fade-right" data-aos-delay="350">
+                        <!-- Replace with AI generated icon if available, e.g., <img src="path/to/beyond-labels-icon.svg" alt="Beyond Labels Icon" class="project-icon"> -->
+                        <i class="fas fa-tags"></i>
+                        <div class="project-title">Beyond Labels</div>
+                        <div class="project-description">Website for Caste & Religious Discrimination Awareness.</div>
+                        <button class="elaborate-btn" data-bs-toggle="modal" data-bs-target="#projectModal" data-project-title="Beyond Labels" data-project-desc="Website for Caste & Religious Discrimination Awareness." data-project-id="beyond-labels">✨ Elaborate</button>
+                    </div>
+                    <div class="project-card smart-rain" data-aos="zoom-in" data-aos-delay="450">
+                        <!-- Replace with AI generated icon if available -->
+                        <i class="fas fa-cloud-showers-heavy"></i>
+                        <div class="project-title">Smart Rain Detection and Shielding System</div>
+                        <div class="project-description">IoT system for automated rain detection and protective shield deployment.</div>
+                        <button class="elaborate-btn" data-bs-toggle="modal" data-bs-target="#projectModal" data-project-title="Smart Rain Detection and Shielding System" data-project-desc="IoT system for automated rain detection and protective shield deployment." data-project-id="smart-rain">✨ Elaborate</button>
+                    </div>
+                    <div class="project-card joyful-campus" data-aos="fade-left" data-aos-delay="550">
+                        <!-- Replace with AI generated icon if available -->
+                        <i class="fas fa-smile"></i>
+                        <div class="project-title">Joyful Campus</div>
+                        <div class="project-description">Space for Peace App.</div>
+                        <button class="elaborate-btn" data-bs-toggle="modal" data-bs-target="#projectModal" data-project-title="Joyful Campus" data-project-desc="Space for Peace App." data-project-id="joyful-campus">✨ Elaborate</button>
+                    </div>
+                    <div class="project-card data-automation" data-aos="flip-up" data-aos-delay="650">
+                        <!-- Replace with AI generated icon if available -->
+                        <i class="fas fa-database"></i>
+                        <div class="project-title">Data Automation Tool</div>
+                        <div class="project-description">Python-based tool for data cleaning and analysis.</div>
+                        <button class="elaborate-btn" data-bs-toggle="modal" data-bs-target="#projectModal" data-project-title="Data Automation Tool" data-project-desc="Python-based tool for data cleaning and analysis." data-project-id="data-automation">✨ Elaborate</button>
+                    </div>
+                    <div class="project-card travel-booking" data-aos="fade-up" data-aos-delay="750">
+                        <!-- Changed icon to car -->
+                        <i class="fas fa-car"></i>
+                        <div class="project-title">Integrated Travel Booking Platform</div>
+                        <div class="project-description">Full-stack web and mobile app for travel booking.</div>
+                        <button class="elaborate-btn" data-bs-toggle="modal" data-bs-target="#projectModal" data-project-title="Integrated Travel Booking Platform" data-project-desc="Full-stack web and mobile app for travel booking." data-project-id="travel-booking">✨ Elaborate</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="internships" class="content-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="section-header">INTERNSHIPS</div>
+                <div class="section-title">MY PROFESSIONAL STINTS</div>
+                <div class="small-item-list">
+                    <div class="small-item">
+                        <i class="fas fa-building"></i>
+                        <span>
+                            Kshetra Business Technologies Pvt Ltd, Coimbatore<br>
+                            <span class="role">Python-based Tool Developer Intern</span>
+                        </span>
+                    </div>
+                    <div class="small-item">
+                        <i class="fas fa-cash-register"></i>
+                        <span>
+                            Retail Shops (Part-time)<br>
+                            <span class="role">Accountant/Accounts Based Works</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="certifications" class="content-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="section-header">CERTIFICATIONS</div>
+                <div class="section-title">VALIDATED SKILLS</div>
+                <div class="small-item-list">
+                    <div class="small-item cert-item-style infosys-iot">
+                        <i class="fas fa-certificate"></i>
+                        <span>
+                            Infosys: Internet of Things 101
+                        </span>
+                    </div>
+                    <div class="small-item cert-item-style infosys-bigdata">
+                        <i class="fas fa-database"></i>
+                        <span>
+                            Infosys: BIG DATA
+                        </span>
+                    </div>
+                    <div class="small-item cert-item-style infosys-daa">
+                        <i class="fas fa-chart-line"></i>
+                        <span>
+                            Infosys: DAA (Data Analytics using Python)
+                        </span>
+                    </div>
+                    <div class="small-item cert-item-style microsoft-pl300">
+                        <i class="fab fa-microsoft"></i>
+                        <span>
+                            Microsoft PL-300 ChallengeCWBVeloces
+                        </span>
+                    </div>
+                    <div class="small-item cert-item-style ethical-hacking">
+                        <i class="fas fa-user-secret"></i>
+                        <span>
+                            L&T: Ethical Hacking
+                        </span>
+                    </div>
+                    <div class="small-item cert-item-style infosys-python">
+                        <i class="fas fa-code"></i>
+                        <span>
+                            Infosys: Introduction of Python
+                        </span>
+                    </div>
+                    <div class="small-item cert-item-style infosys-android">
+                        <i class="fab fa-android"></i>
+                        <span>
+                            Infosys: Android App Development with Kotlin
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="extra-curricular" class="content-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="section-header">ACTIVITIES & LEADERSHIP</div>
+                <div class="section-title">EXTRA-CURRICULAR & LEADERSHIP</div>
+                <ul class="extra-curricular-list">
+                    <li class="extra-curricular-item" data-aos="fade-right" data-aos-delay="100">
+                        <div class="icon-wrapper"><i class="fas fa-calendar-check"></i></div>
+                        <span class="activity-text">Organized and Volunteered department events (FLUX - SAMAGRA)</span>
+                    </li>
+                    <li class="extra-curricular-item" data-aos="fade-right" data-aos-delay="200">
+                        <div class="icon-wrapper"><i class="fas fa-star"></i></div>
+                        <span class="activity-text">Led a team of one - Science Project, captain (Scouts and Guides)</span>
+                    </li>
+                    <li class="extra-curricular-item" data-aos="fade-right" data-aos-delay="300">
+                        <div class="icon-wrapper"><i class="fas fa-futbol"></i></div>
+                        <span class="activity-text">All Rounder Player of Women's Football Team - Dept of Computer Science</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="contact" class="content-card" data-aos="fade-up" data-aos-delay="700">
+                <div class="section-header">GET IN TOUCH</div>
+                <div class="section-title">CONTACT ME</div>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            Email
+                            <a href="mailto:dhanavandhiniv.26@gmail.com">dhanavandhiniv.26@gmail.com</a>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            Phone
+                            <span>+916380677262</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="contact-address-grid">
+                    <div class="contact-address-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="address-title">Current Address</div>
+                            <div class="address-text">no 32 Mathai building, belmar layout Nagasandra Post -560073</div>
+                        </div>
+                    </div>
+                    <div class="contact-address-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="address-title">Permanent Address</div>
+                            <div class="address-text">18/382 malar nagar Alagumeignanapuram Sivagangai - 630561</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="btn btn-primary rounded-circle">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Project Details Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="projectModalDescription"></p>
+                    <div id="projectModalDetails">
+                        <!-- Dynamic content will be loaded here -->
+                    </div>
+                    <!-- Spinner removed as Gemini API call is removed for this section -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Pop-up Modal -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="welcome-icon-container">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h5 class="modal-title" id="welcomeModalLabel">Welcome!</h5>
+                    <p>Feel free to toggle between light and dark modes using the <i class="fas fa-sun"></i> button!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out',
+            once: true,
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.setAttribute('data-theme',
+                document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+            themeToggle.querySelector('i').className =
+                document.documentElement.getAttribute('data-theme') === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Update active class on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('div[id]');
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 100; // Adjusted offset for better active state
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const targetLink = document.querySelector('.sidebar-nav a[href*=' + current.id + ']');
+                    if (targetLink) {
+                        targetLink.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Project Modal Dynamic Content - Reverted to static content
+        const projectModal = document.getElementById('projectModal');
+        projectModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const projectTitle = button.getAttribute('data-project-title');
+            const projectDesc = button.getAttribute('data-project-desc');
+            const projectId = button.getAttribute('data-project-id');
+
+            const modalTitle = projectModal.querySelector('.modal-title');
+            const modalBodyDescription = projectModal.querySelector('#projectModalDescription');
+            const modalDetails = projectModal.querySelector('#projectModalDetails');
+            // Spinner is no longer needed as content is static
+            // const modalSpinner = projectModal.querySelector('#modalSpinner');
+
+            modalTitle.textContent = projectTitle;
+            modalBodyDescription.textContent = projectDesc;
+            modalDetails.innerHTML = ''; // Clear previous content
+            // modalSpinner.style.display = 'block'; // Hide spinner as content is static
+
+            // Directly set content based on projectId
+            let detailsHtml = '';
+            if (projectId === 'beyond-labels') {
+                detailsHtml = `
+                    <h6>Full Description:</h6>
+                    <p>Created a website to raise awareness about caste and religious discrimination, enabling users to share stories, watch awareness videos, and file complaints.</p>
+                    <h6>Key Features:</h6>
+                    <ul>
+                        <li>Video and article sections for awareness.</li>
+                        <li>Anonymous story sharing and complaint submission forms.</li>
+                    </ul>
+                    <h6>Technologies Used:</h6>
+                    <ul>
+                        <li>HTML, CSS, JavaScript</li>
+                    </ul>
+                    <h6>Skills Gained:</h6>
+                    <ul>
+                        <li>Web development, front-end design, user experience.</li>
+                    </ul>
+                `;
+            } else if (projectId === 'smart-rain') {
+                detailsHtml = `
+                    <h6>Full Description:</h6>
+                    <p>Developed an IoT system for automated rain detection and protective shield deployment, integrating hardware with a microcontroller for real-time environmental response and an integrated drying mechanism.</p>
+                    <h6>Key Features:</h6>
+                    <ul>
+                        <li>Detects rain via LDR sensor to trigger servo-controlled shield deployment.</li>
+                        <li>Activates a DC motor for drying and a buzzer for immediate alerts.</li>
+                    </ul>
+                    <h6>Technologies Used:</h6>
+                    <ul>
+                        <li>Arduino (C++)</li>
+                        <li>LDR Sensor, Servo Motor, DC Motor, Buzzer</li>
+                        <li>Tkinter (Python for GUI)</li>
+                    </ul>
+                    <h6>Skills Gained:</h6>
+                    <ul>
+                        <li>IoT system design, embedded programming, sensor integration, motor control, automation.</li>
+                    </ul>
+                `;
+            } else if (projectId === 'joyful-campus') {
+                detailsHtml = `
+                    <h6>Full Description:</h6>
+                    <p>Created an app to help students find peaceful spots on campus. It maps quiet places, detects emotions, plays mood-based music, and sends motivational quotes. Students can also share their thoughts about each place.</p>
+                    <h6>Technologies Used:</h6>
+                    <ul>
+                        <li>MongoDB, SQLite</li>
+                        <li>Python</li>
+                        <li><li>Android Studio, HTML, CSS, JavaScript</li>
+                    </ul>
+                `;
+            } else if (projectId === 'data-automation') {
+                detailsHtml = `
+                    <h6>Full Description:</h6>
+                    <p>Developed a Python-based tool for automating data cleaning, preprocessing, and statistical analysis on large datasets.</p>
+                    <h6>Technologies Used:</h6>
+                    <ul>
+                        <li>Python</li>
+                    </ul>
+                `;
+            } else if (projectId === 'travel-booking') {
+                detailsHtml = `
+                    <h6>Full Description:</h6>
+                    <p>Developed a full-stack web and mobile application for a travel company (like Ola), streamlining booking of transportation and services.</p>
+                    <h6>Technologies Used:</h6>
+                    <ul>
+                        <li>Frontend: HTML, CSS, JavaScript (with React.js for Web)</li>
+                        <li>Backend: Python (Flask)</li>
+                    </ul>
+                `;
+            }
+            modalDetails.innerHTML = detailsHtml;
+            // modalSpinner.style.display = 'none'; // Hide spinner
+        });
+
+
+        // Typewriter Effect
+        const aboutTextElement = document.getElementById('typewriter-text');
+        const originalAboutText = "Hello! I'm Dhanavandhini V, a Computer Science undergraduate at Christ University. I'm passionate about building creative digital solutions and enjoy working with emerging tech like Python, AI, and Android Development.";
+        let charIndex = 0;
+        let typingTimeout;
+
+        function typeWriter() {
+            if (charIndex < originalAboutText.length) {
+                aboutTextElement.innerHTML += originalAboutText.charAt(charIndex);
+                charIndex++;
+                typingTimeout = setTimeout(typeWriter, 40);
+            }
+        }
+
+        const aboutSection = document.getElementById('about');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (charIndex === 0) {
+                        aboutTextElement.textContent = '';
+                        typeWriter();
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(aboutSection);
+
+        // Animate skill bars when they come into view
+        const skillBars = document.querySelectorAll('.skill-bar-item');
+        const skillObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBarFill = entry.target.querySelector('.progress-bar-fill');
+                    // Only attempt to animate if progressBarFill exists (i.e., it's a technical skill bar)
+                    if (progressBarFill) {
+                        const percentage = parseInt(progressBarFill.style.width);
+                        progressBarFill.style.width = '0%'; // Reset to 0 before animating
+                        setTimeout(() => {
+                            progressBarFill.style.width = percentage + '%'; // Animate to actual percentage
+                        }, 100); // Small delay to ensure reset takes effect
+                    }
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, { threshold: 0.7 }); // Trigger when 70% of the skill bar item is visible
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+
+        // Show welcome modal on page load
+        window.addEventListener('load', () => {
+            const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+            setTimeout(() => { // Small delay for better user experience
+                welcomeModal.show();
+            }, 1000);
+
+            // Initialize Particles.js
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 120, /* Increased particle count */
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": ["#2A3B8F", "#3B50A0", "#FFFFFF"] /* Blue from image and white for particles */
+                    },
+                    "shape": {
+                        "type": ["circle", "triangle", "star"], /* Mixed shapes */
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        },
+                    },
+                    "opacity": {
+                        "value": 0.8, /* Slightly increased opacity */
+                        "random": true,
+                        "anim": {
+                            "enable": true, /* Enabled opacity animation */
+                            "speed": 1,
+                            "opacity_min": 0.2, /* Minimum opacity during animation */
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 5, /* Increased base size */
+                        "random": true, /* Ensure random sizing */
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#FFFFFF", /* White line color for brighter animation */
+                        "opacity": 0.7, /* Increased opacity for brighter animation */
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 5, /* Increased movement speed */
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+    </script>
+</body>
+</html>
